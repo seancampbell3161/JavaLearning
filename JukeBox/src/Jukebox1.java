@@ -1,6 +1,7 @@
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 
 public class Jukebox1 {
 
@@ -11,11 +12,20 @@ public class Jukebox1 {
         j1.go();
     }
 
+    class ArtistCompare implements Comparator<Song> {
+        public int compare(Song one, Song two) {
+            return one.getArtist().compareTo(two.getArtist());
+        }
+    }
+
     public void go() {
         getSongs();
         System.out.println(songList);
         Collections.sort(songList);
         System.out.println(songList);
+
+        ArtistCompare artistCompare = new ArtistCompare();
+        Collections.sort(songList, artistCompare);
     }
 
     public void getSongs() {
