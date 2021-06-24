@@ -4,7 +4,7 @@ import java.util.Collections;
 
 public class Jukebox1 {
 
-    public ArrayList<String> songList = new ArrayList<>();
+    public ArrayList<Song> songList = new ArrayList<>();
 
     public static void main(String[] args) {
         Jukebox1 j1 = new Jukebox1();
@@ -33,7 +33,8 @@ public class Jukebox1 {
     }
 
     public void addSong(String s) {
-        String[] songAndArtist = s.split("/");
-        songList.add(songAndArtist[0]);
+        String[] tokens = s.split("/");
+        Song nextSong = new Song(tokens[0], tokens[1], tokens[2], tokens[3]);
+        songList.add(nextSong);
     }
 }
