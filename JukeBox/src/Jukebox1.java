@@ -1,5 +1,6 @@
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Jukebox1 {
 
@@ -13,10 +14,11 @@ public class Jukebox1 {
     public void go() {
         getSongs();
         System.out.println(songList);
+        Collections.sort(songList);
+        System.out.println(songList);
     }
 
     public void getSongs() {
-
         try {
             File file = new File("songs.txt");
             BufferedReader reader = new BufferedReader(new FileReader(file));
@@ -27,7 +29,7 @@ public class Jukebox1 {
         } catch(Exception e) {
             e.printStackTrace();
         }
-        
+
     }
 
     public void addSong(String s) {
