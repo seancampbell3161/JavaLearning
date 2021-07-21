@@ -13,6 +13,7 @@ public class Jukebox1 {
     }
 
     class ArtistCompare implements Comparator<Song> {
+        @Override
         public int compare(Song one, Song two) {
             return one.getArtist().compareTo(two.getArtist());
         }
