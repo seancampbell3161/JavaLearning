@@ -1,5 +1,8 @@
+import jdk.swing.interop.SwingInterOpUtils;
+
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Set;
 import java.util.TreeSet;
 
 public class TreeSetImpl {
@@ -25,7 +28,7 @@ public class TreeSetImpl {
         }
 
 
-        TreeSet<Person> orderedSet = new TreeSet<>();
+        Set<Person> orderedSet = new TreeSet<>();
         orderedSet.add(hero);
         orderedSet.add(zoey);
         orderedSet.add(pickles);
@@ -38,5 +41,42 @@ public class TreeSetImpl {
             System.out.println(p.getInfo());
         }
         //orderByLastName(myList);
+
+        System.out.println();
+
+        System.out.println("ANIMALS-----");
+        Animal dog = new Animal("Max", "Dog");
+        Animal cat = new Animal("Susie", "Cat");
+        Animal hippo = new Animal("Fred", "Hippo");
+        Animal tiger = new Animal("Jones", "Tiger");
+        Animal spider = new Animal ("Carl", "Spider");
+
+        System.out.println("BY NAME-----");
+
+        TreeSet<Animal> tsName = new TreeSet(new AnimalComparator());
+
+        tsName.add(dog);
+        tsName.add(cat);
+        tsName.add(hippo);
+        tsName.add(tiger);
+        tsName.add(spider);
+
+        for(Animal a : tsName) {
+            System.out.println(a.getName() + ", " + a.getType());
+        }
+
+        System.out.println("BY TYPE-----");
+
+        Set<Animal> tsType = new TreeSet(new TypeComparator());
+
+        tsType.add(dog);
+        tsType.add(cat);
+        tsType.add(hippo);
+        tsType.add(tiger);
+        tsType.add(spider);
+
+        for(Animal a : tsType) {
+            System.out.println(a.getName() + ", " + a.getType());
+        }
     }
 }
